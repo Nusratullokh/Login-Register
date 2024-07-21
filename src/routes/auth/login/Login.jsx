@@ -3,6 +3,7 @@ import { Button, Checkbox, Form, Input, Typography, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import axios from "../../../api/index";
+import TelegramLoginButton  from 'telegram-login-button'
 
 
 
@@ -110,6 +111,10 @@ const Login = () => {
         }}
         useOneTap
       />
+       <TelegramLoginButton
+    botName={import.meta.env.VITE_TELEGRAM_BOT_USERNAME} 
+    dataOnauth={user => console.log(user)}
+  />,
            </div>
       <Text className='mt-[20px] block text-center'> Don't have an account? <Link to="/auth/Register">Register </Link> </Text>
     </Form>
@@ -117,3 +122,5 @@ const Login = () => {
 }
 
 export default Login
+
+// https://t.me/nusratullokh_77_bot
