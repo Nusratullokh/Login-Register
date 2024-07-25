@@ -1,58 +1,75 @@
-import {useRoutes} from "react-router-dom"
-import {  lazy } from "react";
+import { useRoutes, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Suspense, lazy } from "react";
 
-// import Suspense, { Loading } from "../utils";
+import { Loading } from "../utils";
 
+const Home = lazy(() => import("./home/Home"));
+const Private = lazy(() => import("./private/private"));
 
-import  Suspense,  { Loading } from "../utils/index";
+const Dashboard = lazy(() => import("./dashboard/Dashboard"));
+const Products = lazy(() => import("./dashboard/products/products"));
+const Users = lazy(() => import("./dashboard/users/users"));
+const Settings = lazy(() => import("./dashboard/settings/settings"));
+const Profile = lazy(() => import("./dashboard/profile/profile"));
 
-
-const Home = lazy (() => import("./home/Home"))
-const Auth = lazy (() => import("./auth/Auth"))
-const Dashboard = lazy (() => import("./dashboard/Dashboard"))
-
-const Login = lazy(()=> import("./auth/login/Login"));
-const Register = lazy(()=> import("./auth/register/Register"));
-const Products = lazy(()=> import("./dashboard/products/products"));
-const Users = lazy(()=> import("./dashboard/users/users"));
-
+const Auth = lazy(() => import("./auth/Auth"));
+const Login = lazy(() => import("./auth/login/Login"));
+const Register = lazy(() => import("./auth/register/Register"));
 
 const RouteController = () => {
+   const auth = useSelector(state => state);
+   return useRoutes([
 
-  return useRoutes ([
-    {
-      path: "",
-      element: <Suspense><Home/></Suspense>
-  },
-  {
-      path: "auth",
-      element: <Suspense><Auth/></Suspense>,
-      children: [
-        {
-          path: "",
-          element: <Suspense><Login/></Suspense>
+      {
+         path: "",
+         element: <Suspense fallback={<Loading/>}><Home/></Suspense>
       },
+
       {
-        path: "register",
-        element: <Suspense> <Register/></Suspense>
-    }
-      ]
-  },
-  {
-    path: "dashboard",
-    element: <Suspense><Dashboard/></Suspense>,
-    children:[
-      {
-        path: "",
-        element: <Suspense><Products/></Suspense>
+         path: "dashboard",
+         element: <Suspense fallback={<Loading/>}><Private/></Suspense>,
+         children: [
+            {
+               path: "",
+               element: <Suspense fallback={<Loading/>}><Dashboard/></Suspense>,
+               children: [
+                  {
+                     path: "",
+                     element: <Suspense fallback={<Loading/>}><Products/></Suspense>
+                  },
+                  {
+                     path: "users",
+                     element: <Suspense fallback={<Loading/>}><Users/></Suspense>
+                  },
+                  {
+                     path: "settings",
+                     element : <Suspense fallback={<Loading/>}><Settings/></Suspense>
+                  },
+                  {
+                     path: "profile",
+                     element: <Suspense fallback={<Loading/>}><Profile/></Suspense>
+                  }
+               ]
+            }
+         ]
       },
+      
       {
-        path: "users",
-        element: <Suspense><Users/></Suspense>
+         path: "auth",
+         element: auth.token ? <Navigate to="/dashboard" /> : <Suspense fallback={<Loading/>}><Auth/></Suspense>,
+         children: [
+            {
+               path: "",
+               element: <Suspense fallback={<Loading/>}><Login/></Suspense>
+            },
+            {
+               path: "register",
+               element: <Suspense fallback={<Loading/>}><Register/></Suspense>
+            }
+         ]
       }
-    ]
-  }
-  ]  )
+   ])
 }
 
 export default RouteController
