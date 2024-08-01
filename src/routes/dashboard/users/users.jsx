@@ -11,7 +11,7 @@ const Auth = lazy(() => import('../../auth/Auth'));
 const Dashboard = lazy(() => import('../Dashboard'));
 
 const Products = lazy(() => import('../products/products'));
-const Users = lazy(() => import('../users/users'));;
+const Popular_product = lazy(() => import('../../popular_products'));;
 const Login = lazy(() => import('../../auth/login/Login'));
 const Register = lazy(() => import('../../auth/register/Register'));
 
@@ -20,7 +20,7 @@ const RouteController = () => {
     return useRoutes([
         {
             path: '',
-            element: <Suspense><Home /></Suspense>,
+            element: <Suspense><Popular_product /></Suspense>,
         },
         {
             path: 'auth',
@@ -49,13 +49,14 @@ const RouteController = () => {
                             element: <Suspense><Products /></Suspense>,
                         },
                         {
-                            path: 'users',
-                            element: <Suspense><Users /></Suspense>,
+                            path: 'Popular-product',
+                            element: <Suspense><Popular_product /></Suspense>,
                         },
                         {
                             path: 'profile',
                             element: <Suspense><DashboardProfile /></Suspense>,
-                        }
+                        },
+
                     ]
                 }
             ]

@@ -30,7 +30,7 @@ const SiderComponent = ({ collapsed }) => {
       collapsed={collapsed}
       breakpoint="lg"
       collapsedWidth="70"
-      onBreakpoint={(broken) => {
+      onBreakpoint={() => {
       }}
       onCollapse={(collapsed, type) => {
         console.log(collapsed, type);
@@ -50,7 +50,7 @@ const SiderComponent = ({ collapsed }) => {
           {
             key: '2',
             icon: <ProductOutlined />,
-            label: <NavLink end className="nav-link font-bold" to="/dashboard/users">Popular</NavLink>,
+            label: <NavLink end className="nav-link font-bold" to="/dashboard/Users">Popular</NavLink>,
           },
         ]}
       />
