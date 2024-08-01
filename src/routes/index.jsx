@@ -10,7 +10,6 @@ const Private = lazy(() => import("./private/private"));
 const Dashboard = lazy(() => import("./dashboard/Dashboard"));
 const Products = lazy(() => import("./dashboard/products/products"));
 const Users = lazy(() => import("./dashboard/users/users"));
-const Settings = lazy(() => import("./dashboard/settings/settings"));
 const Profile = lazy(() => import("./dashboard/profile/profile"));
 
 const Auth = lazy(() => import("./auth/Auth"));
@@ -42,10 +41,7 @@ const RouteController = () => {
                      path: "users",
                      element: <Suspense fallback={<Loading/>}><Users/></Suspense>
                   },
-                  {
-                     path: "settings",
-                     element : <Suspense fallback={<Loading/>}><Settings/></Suspense>
-                  },
+               
                   {
                      path: "profile",
                      element: <Suspense fallback={<Loading/>}><Profile/></Suspense>

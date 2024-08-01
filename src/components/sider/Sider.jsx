@@ -45,12 +45,12 @@ const SiderComponent = ({ collapsed }) => {
           {
             key: '1',
             icon: <DropboxOutlined />,
-            label: <NavLink end className="nav-link" to="/dashboard">Products</NavLink>,
+            label: <NavLink end className="nav-link font-bold" to="/dashboard">Products</NavLink>,
           },
           {
             key: '2',
             icon: <ProductOutlined />,
-            label: <NavLink end className="nav-link" to="/dashboard/users">Popular</NavLink>,
+            label: <NavLink end className="nav-link font-bold" to="/dashboard/users">Popular</NavLink>,
           },
         ]}
       />

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch"
 
@@ -12,7 +11,7 @@ const Home = () => {
         {data?.map((product) => (
           <div className="shadow-product-shadow rounded-md" key={product._id}>
             <Link to={`/product/${product._id}`}>
-              <img className="w-30 h-30 object-contain bg-gray-300 rounded-t-md" title={product.product_name} src={product.product_images[0]} alt={product.product_name} />
+              <img className="w-45 h-45 object-contain bg-gray-300 rounded-t-md" title={product.product_name} src={product.product_images[0]} alt={product.product_name} />
             </Link>
             <div className="p-5">
               <p className="font-medium text-slate-800">{product.product_name}</p>

@@ -33,7 +33,7 @@ const Navbar = ({ collapsed, toggleCollapsed, setTermSearch }) => {
       <div className='flex items-center gap-16'>
         <div className="demo-logo">
           <div className='flex items-center'>
-            <span className='text-white text-3xl w-full flex justify-center items-center h-full py-4 font-mono'>LOGO</span>
+            <span className='text-white text-4xl font-bold w-full flex justify-center items-center h-full py-4 font-mono'>LOGO</span>
           </div>
         </div>
 
