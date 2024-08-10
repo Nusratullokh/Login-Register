@@ -1,9 +1,9 @@
-import RouteController from "./routes";
+import RouteController from "./routes/index"
 
 function App() {
   return (
     <>
-      <RouteController />
+      <RouteController/>
     </>
   )
 }

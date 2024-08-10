@@ -1,6 +1,6 @@
 import { Button, Layout, Menu, Modal } from 'antd';
 const { Sider } = Layout;
-import {   DropboxOutlined, ProductOutlined  } from '@ant-design/icons';
+import {   DropboxOutlined, UserOutlined, ProductOutlined  } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { SIGNOUT } from '../../redux/action/action';
 import { useDispatch } from 'react-redux';
@@ -40,7 +40,7 @@ const SiderComponent = ({ collapsed }) => {
         theme="dark"
         mode="inline"
         defaultSelectedKeys={['1']}
-        inlineCollapsed={collapsed}
+        // inlineCollapsed={collapsed}
         items={[
           {
             key: '1',
@@ -49,8 +49,8 @@ const SiderComponent = ({ collapsed }) => {
           },
           {
             key: '2',
-            icon: <ProductOutlined />,
-            label: <NavLink end className="nav-link font-bold" to="/dashboard/Users">Popular</NavLink>,
+            icon: <UserOutlined />,
+            label: <NavLink end className="nav-link font-bold" to="/dashboard/Users">Users</NavLink>,
           },
         ]}
       />

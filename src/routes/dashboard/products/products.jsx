@@ -56,13 +56,8 @@ const Products = () => {
       title="product type"
       dataIndex="product_type"
       key="product_type"
-    />    <Column
-      title="product type"
-      dataIndex="product_type"
-      key="product_type"
-    />
-      <Column className='max-w-[350px]' title="Description" dataIndex="description" key="description" />
-   
+    />    
+     
     </Table>
   );
 };

@@ -6,7 +6,7 @@ const Home = () => {
   console.log(data);
   return (
     <div>
-      <h1>Papular Product</h1>
+      <h1>pp</h1>
       <div className="max-w-[1200px] py-20 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 ">
         {data?.map((product) => (
           <div className="shadow-product-shadow rounded-md" key={product._id}>
